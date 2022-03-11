@@ -1,11 +1,8 @@
 import type { NextPage } from "next";
+import Layout from "../components/Layout/layout.component";
 
 const Home: NextPage = () => {
-  return (
-    <div className="h-screen flex items-center justify-center">
-      <h1 className="text-3xl font-bold text-orange-500">Hello World!</h1>
-    </div>
-  );
+  return <Layout></Layout>;
 };
 
 export default Home;
