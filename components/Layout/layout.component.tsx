@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { AppProps } from "../../types/props.types";
 
-const Layout: React.FunctionComponent<any> = ({ main }) => {
+const Layout: React.FunctionComponent<AppProps> = ({ page }) => {
   return (
     <section className="h-screen grid grid-rows-48">
       <header className="row-span-4 grid grid-cols-48">
@@ -29,8 +30,30 @@ const Layout: React.FunctionComponent<any> = ({ main }) => {
               </a>
             </Link>
           </div>
+          <div className="flex flex-col ml-6 mr-4">
+            <label className="my-2 text-current font-medium">
+              Authentication
+            </label>
+            <Link href="/login">
+              <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
+                Login
+              </a>
+            </Link>
+            <Link href="/register">
+              <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
+                Register
+              </a>
+            </Link>
+            <Link href="/reset-password">
+              <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
+                Reset Password
+              </a>
+            </Link>
+          </div>
         </nav>
-        <main className="col-span-41  bg-gray-100 rounded-tl-lg"></main>
+        <main className="col-span-41  bg-blue-100 rounded-tl-lg pt-4 px-4 overflow-y-scroll">
+          {page}
+        </main>
       </section>
     </section>
   );
