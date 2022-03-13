@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AppProps } from "../../types/props.types";
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 const Layout: React.FunctionComponent<AppProps> = ({ page }) => {
   return (
@@ -22,6 +23,16 @@ const Layout: React.FunctionComponent<AppProps> = ({ page }) => {
             <Link href="/todays-orders">
               <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
                 Today's Orders
+              </a>
+            </Link>
+            <Link href="/customer-list">
+              <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
+                Customer List
+              </a>
+            </Link>
+            <Link href="/customer-detail">
+              <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
+                Customer Detail
               </a>
             </Link>
             <Link href="/users">
@@ -51,8 +62,9 @@ const Layout: React.FunctionComponent<AppProps> = ({ page }) => {
             </Link>
           </div>
         </nav>
-        <main className="col-span-41  bg-blue-100 rounded-tl-lg pt-4 px-4 overflow-y-scroll">
-          {page}
+        <main className="col-span-41  bg-blue-100 rounded-tl-lg pt-6 px-6 grid grid-rows-48">
+          <PerfectScrollbar className="row-span-42">{page}</PerfectScrollbar>
+          <div className="row-span-5"></div>
         </main>
       </section>
     </section>

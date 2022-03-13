@@ -9,41 +9,45 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
 const Page: React.FunctionComponent<AppProps> = (props) => {
   return (
     <section className="grid grid-rows-48 h-full">
-      <header className="flex flex-row row-span-3 pr-3 pl-5 mb-3 items-center bg-white rounded-lg shadow">
-        <label htmlFor="kuneHubs" className="mr-2">
-          Filter by:
-        </label>
-        <select
-          className="border border-slate-500 outline-0 focus:border-blue-700 text-slate-500 text-sm rounded-md p-2 bg-white"
-          name="hubs"
-          id="kuneHubs"
-        >
-          <option className="rounded-md" value="All" selected>
-            ALL HUBS
-          </option>
-          <option value="MAUA">MAUA</option>
-          <option value="CBD">CBD</option>
-          <option value="SAMEER">SAMEER</option>
-          <option value="THIKA ROAD">THIKA ROAD</option>
-        </select>
+      <header className="row-span-4">
+        <div className="flex flex-row items-center px-5 py-4 bg-white rounded-lg shadow">
+          <div className="flex flex-row items-center">
+            <label htmlFor="kuneHubs" className="mr-2">
+              Filter by hub:
+            </label>
+            <select
+              className="border border-slate-500 outline-0 focus:border-blue-700 text-slate-500 text-sm rounded-md p-2 bg-white"
+              name="hubs"
+              id="kuneHubs"
+            >
+              <option className="rounded-md" value="All" selected>
+                ALL HUBS
+              </option>
+              <option value="MAUA">MAUA</option>
+              <option value="CBD">CBD</option>
+              <option value="SAMEER">SAMEER</option>
+              <option value="THIKA ROAD">THIKA ROAD</option>
+            </select>
+          </div>
+        </div>
       </header>
-      <section className="row-span-44">
+      <section className="row-span-42 flex flex-col gap-5 shadow">
         <div className="grid grid-cols-4 gap-5 mb-3">
-          <div className="bg-white rounded-lg h-28 p-5 shadow">
+          <div className="bg-primary text-white text-1xl fs rounded-lg h-32 p-5">
             Total Orders
           </div>
-          <div className="bg-white rounded-lg h-28 p-5 shadow">
+          <div className="bg-secondary text-white rounded-lg h-32 p-5 shadow">
             Another report
           </div>
-          <div className="bg-white rounded-lg h-28 p-5 shadow">
+          <div className="bg-warning text-white rounded-lg h-32 p-5 shadow">
             Another report
           </div>
-          <div className="bg-white rounded-lg h-28 p-5 shadow">
+          <div className="bg-dark text-white rounded-lg h-32 p-5 shadow">
             Another report
           </div>
         </div>
-        <div className="bg-white p-5 rounded flex flex-col gap-4">
-          <h2 className="">Meals of the day</h2>
+        <div className="bg-white p-5 rounded-lg flex flex-col gap-4">
+          <h2 className="mb-3">Meals of the day</h2>
           <div className="shadow overflow-x-scroll border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-100">

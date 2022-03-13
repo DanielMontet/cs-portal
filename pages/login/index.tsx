@@ -2,9 +2,9 @@ import Link from "next/link";
 
 const Login: React.FunctionComponent = (props) => {
   return (
-    <section className="h-screen bg-gray-100 flex justify-center">
-      <main className="h-full w-1/4">
-        <header className="w-full mt-60 mb-5 flex flex-col items-center">
+    <section className="h-screen bg-blue-100 flex justify-center">
+      <main className="my-40 bg-white w-1/3 flex flex-col justify-center rounded-lg px-5 shadow">
+        <header className="w-full mb-5 flex flex-col items-center">
           <img className="max-h-12" src="/kune_landscape_logo.svg" alt="" />
           <h1 className="text-3xl font-extrabold text-gray-700">
             Login into your account
