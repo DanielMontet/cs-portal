@@ -1,5 +1,8 @@
-import React from "react"
+import PropTypes from 'prop-types';
 
 export type AppProps = {
-	page?: JSX.Element
+	page?: JSX.Element,
+	children?: any,
+	index?: number,
+	value?: number
 }

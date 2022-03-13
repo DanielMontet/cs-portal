@@ -25,12 +25,12 @@ const Layout: React.FunctionComponent<AppProps> = ({ page }) => {
                 Today's Orders
               </a>
             </Link>
-            <Link href="/customer-list">
+            <Link href="/customers">
               <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
                 Customer List
               </a>
             </Link>
-            <Link href="/customer-detail">
+            <Link href="/customers/1">
               <a className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2">
                 Customer Detail
               </a>
