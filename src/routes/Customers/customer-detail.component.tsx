@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import React from "react";
-import Layout from "../Layout/layout.component";
 import {
   TabPanel,
   a11yProps,

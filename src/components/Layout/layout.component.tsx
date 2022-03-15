@@ -1,17 +1,10 @@
 import { AppProps } from "../../types/props.types";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Dashboard from "../Dashboard/dashboard.component";
-import Login from "../Login/login.component";
-import ResetPassword from "../ResetPassword/reset-password.component";
-import CustomerList from "../Customers/customer-list.component";
-import OrderList from "../Oders/order-list.component";
 import { useState } from "react";
-import CustomerDetail from "../Customers/customer-detail.component";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Layout: React.FunctionComponent<AppProps> = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
-  console.log("nav ", isNavOpen);
 
   return (
     <section className="h-screen grid grid-rows-48">
@@ -27,93 +20,66 @@ const Layout: React.FunctionComponent<AppProps> = () => {
         </div>
       </header>
       <section className="row-span-44 grid grid-cols-48">
-        <Router>
-          <nav
-            className={`transition-all ease-in-out duration-75 ${
-              isNavOpen ? "col-span-7" : "hidden"
-            }`}
-          >
-            <div className="flex flex-col ml-6 mr-4">
-              <label className="my-2 text-current font-medium">Dashboard</label>
-              <Link
-                to="/dashboard"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Dashboard
-              </Link>
-              <Link
-                to="/todays-orders"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Today's Orders
-              </Link>
-              <Link
-                to="/customer-list"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Customer List
-              </Link>
-              {/* <Link
-                to="/customer-detail"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Customer Detail
-              </Link> */}
-              <Link
-                to="/users"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Users
-              </Link>
-            </div>
-            <div className="flex flex-col ml-6 mr-4">
-              <label className="my-2 text-current font-medium">
-                Authentication
-              </label>
-              <Link
-                to="/login"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Login
-              </Link>
-              <Link
-                to="/reset-password"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                Reset Password
-              </Link>
-            </div>
-          </nav>
-          <main
-            className={`${
-              isNavOpen ? "col-span-41" : "col-span-48 ml-5"
-            }  bg-blue-100 rounded-tl-lg pt-6 px-6 grid grid-rows-48 transition-all ease-in-out duration-75`}
-          >
-            <PerfectScrollbar className="row-span-42">
-              <Switch>
-                <Route path="/dashboard">
-                  <Dashboard />
-                </Route>
-                <Route path="/customer-list">
-                  <CustomerList />
-                </Route>
-                <Route path="/todays-orders">
-                  <OrderList />
-                </Route>
-                <Route path="/login">
-                  <Login />
-                </Route>
-                <Route path="/reset-password">
-                  <ResetPassword />
-                </Route>
-                <Route path="/customer-detail">
-                  <CustomerDetail />
-                </Route>
-              </Switch>
-            </PerfectScrollbar>
-            <div className="row-span-5"></div>
-          </main>
-        </Router>
+        <nav
+          className={`transition-all ease-in-out duration-75 ${
+            isNavOpen ? "col-span-7" : "hidden"
+          }`}
+        >
+          <div className="flex flex-col ml-6 mr-4">
+            <label className="my-2 text-current font-medium">Dashboard</label>
+            <NavLink
+              to="/dashboard"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Dashboard
+            </NavLink>
+            <NavLink
+              to="/orders"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Today's Orders
+            </NavLink>
+            <NavLink
+              to="/customers"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Customer List
+            </NavLink>
+            <NavLink
+              to="/users"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Users
+            </NavLink>
+          </div>
+          <div className="flex flex-col ml-6 mr-4">
+            <label className="my-2 text-current font-medium">
+              Authentication
+            </label>
+            <NavLink
+              to="/login"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Login
+            </NavLink>
+            <NavLink
+              to="/reset-password"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Reset Password
+            </NavLink>
+          </div>
+        </nav>
+        <main
+          className={`${
+            isNavOpen ? "col-span-41" : "col-span-48 ml-5"
+          }  bg-blue-100 rounded-tl-lg pt-6 px-6 grid grid-rows-48 transition-all ease-in-out duration-75`}
+        >
+          <PerfectScrollbar className="row-span-42">
+            <Outlet />
+          </PerfectScrollbar>
+          <div className="row-span-5"></div>
+        </main>
       </section>
     </section>
   );
