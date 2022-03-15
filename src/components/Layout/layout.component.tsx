@@ -53,23 +53,17 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               >
                 Customer List
               </Link>
-              <Link
+              {/* <Link
                 to="/customer-detail"
                 className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
               >
                 Customer Detail
-              </Link>
+              </Link> */}
               <Link
                 to="/users"
                 className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
               >
                 Users
-              </Link>
-              <Link
-                to="/users-detail"
-                className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-              >
-                User Detail
               </Link>
             </div>
             <div className="flex flex-col ml-6 mr-4">
