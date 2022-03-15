@@ -7,6 +7,7 @@ import CustomerList from "./routes/Customers/customer-list.component";
 import OrderList from "./routes/Oders/order-list.component";
 import Login from "./routes/Login/login.component";
 import ResetPassword from "./routes/ResetPassword/reset-password.component";
+import OrderDetail from "./routes/Oders/order-detail";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="users" element={<UsersManagement />} />
           <Route path="customers" element={<CustomerList />} />
-          <Route path="orders" element={<OrderList />} />
+          <Route path="orders" element={<OrderList />}>
+            <Route path=":orderid" element={OrderDetail} />
+          </Route>
           <Route path="login" element={<Login />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route

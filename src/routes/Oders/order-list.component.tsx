@@ -1,4 +1,6 @@
 import { AppProps } from "../../types/props.types";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const OrderList: React.FunctionComponent<AppProps> = (props) => {
   return (
@@ -8,7 +10,7 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
           className="text-current text-1xl font-medium"
           htmlFor="customerList"
         >
-          Order List
+          Orders
         </label>
       </header>
       <section>
@@ -24,223 +26,31 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
           </span>
         </section>
         <section className="w-full">
-          <table className="w-full">
-            <thead className="border-b border-gray-200 w-full">
-              <tr>
-                <th className="p-6 text-left text-sm">Customer Name</th>
-                <th className="p-6 text-left text-sm">Phone</th>
-                <th className="p-6 text-left text-sm">Orders</th>
-                <th className="p-6 text-left text-sm">Location</th>
-                <th className="p-6 text-left text-sm">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <Tabs className="p-5">
+            <TabList>
+              <Tab>Received Orders</Tab>
+              <Tab>Prepared Orders</Tab>
+              <Tab>Dispatched Orders</Tab>
+              <Tab>Delivered Orders</Tab>
+              <Tab>Pending Orders</Tab>
+            </TabList>
+
+            <TabPanel>
+              <Table />
+            </TabPanel>
+            <TabPanel>
+              <Table />
+            </TabPanel>
+            <TabPanel>
+              <Table />
+            </TabPanel>
+            <TabPanel>
+              <Table />
+            </TabPanel>
+            <TabPanel>
+              <Table />
+            </TabPanel>
+          </Tabs>
         </section>
       </section>
     </section>
@@ -248,3 +58,38 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
 };
 
 export default OrderList;
+
+function Table() {
+  return (
+    <table className="w-full">
+      <thead className="border-b border-gray-200 w-full">
+        <tr>
+          <th className="p-6 text-left text-sm">Customer Name</th>
+          <th className="p-6 text-left text-sm">Phone</th>
+          <th className="p-6 text-left text-sm">Orders</th>
+          <th className="p-6 text-left text-sm">Location</th>
+          <th className="p-6 text-left text-sm">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="p-6 text-left text-sm border-b border-gray-200">
+            Customer Name
+          </td>
+          <td className="p-6 text-left text-sm border-b border-gray-200">
+            Phone
+          </td>
+          <td className="p-6 text-left text-sm border-b border-gray-200">
+            Orders
+          </td>
+          <td className="p-6 text-left text-sm border-b border-gray-200">
+            Location
+          </td>
+          <td className="p-6 text-left text-sm border-b border-gray-200">
+            Action
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
