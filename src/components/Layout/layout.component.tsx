@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "../Dashboard/dashboard.component";
 import Login from "../Login/login.component";
 import ResetPassword from "../ResetPassword/reset-password.component";
-import CustomerList from "../customers/customer-list.component";
+import CustomerList from "../Customers/customer-list.component";
 import OrderList from "../Oders/order-list.component";
 import { useState } from "react";
+import CustomerDetail from "../Customers/customer-detail.component";
 
 const Layout: React.FunctionComponent<AppProps> = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -110,6 +111,9 @@ const Layout: React.FunctionComponent<AppProps> = () => {
                 </Route>
                 <Route path="/reset-password">
                   <ResetPassword />
+                </Route>
+                <Route path="/customer-detail">
+                  <CustomerDetail />
                 </Route>
               </Switch>
             </PerfectScrollbar>
