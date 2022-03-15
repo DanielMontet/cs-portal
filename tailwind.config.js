@@ -15,6 +15,7 @@ module.exports = {
       },
       gridColumn: {
         "span-41": "span 41 / span 41",
+        "span-48": "span 48 / span 48",
       },
       colors: {
         primary: "rgb(94, 53, 177)",
