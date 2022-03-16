@@ -5,6 +5,9 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Layout: React.FunctionComponent<AppProps> = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
+  const activeLinkProps = "bg-primary text-white my-1 rounded-md px-5 py-2";
+  const defaultLinkProps =
+    "bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2";
 
   return (
     <section className="h-screen grid grid-rows-48">
@@ -29,31 +32,41 @@ const Layout: React.FunctionComponent<AppProps> = () => {
             <label className="my-2 text-current font-medium">Dashboard</label>
             <NavLink
               to="/dashboard"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
             >
               Dashboard
             </NavLink>
             <NavLink
               to="/orders"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
             >
               Today's Orders
             </NavLink>
             <NavLink
               to="/customers"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
             >
               Customer List
             </NavLink>
             <NavLink
               to="/customer-detail"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
             >
               Customer Detail
             </NavLink>
             <NavLink
               to="/users"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
             >
               Users
             </NavLink>
