@@ -46,6 +46,12 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               Customer List
             </NavLink>
             <NavLink
+              to="/customer-detail"
+              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
+            >
+              Customer Detail
+            </NavLink>
+            <NavLink
               to="/users"
               className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
             >

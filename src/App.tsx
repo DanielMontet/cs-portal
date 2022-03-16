@@ -8,18 +8,21 @@ import OrderList from "./routes/Oders/order-list.component";
 import Login from "./routes/Login/login.component";
 import ResetPassword from "./routes/ResetPassword/reset-password.component";
 import OrderDetail from "./routes/Oders/order-detail";
+import CustomerDetail from "./routes/Customers/customer-detail.component";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route index element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="users" element={<UsersManagement />} />
           <Route path="customers" element={<CustomerList />} />
           <Route path="orders" element={<OrderList />}>
-            <Route path=":orderid" element={OrderDetail} />
+            <Route path=":orderid" element={<OrderDetail />} />
           </Route>
+          <Route path="customer-detail" element={<CustomerDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="reset-password" element={<ResetPassword />} />
           <Route

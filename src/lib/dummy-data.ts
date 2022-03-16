@@ -1,3 +1,5 @@
+import React from "react"
+
 export const meals = [{
 	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
 	sold: 500,

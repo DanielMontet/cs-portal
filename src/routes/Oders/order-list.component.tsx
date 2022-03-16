@@ -1,6 +1,7 @@
 import { AppProps } from "../../types/props.types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import DataTable from "../../components/Table/order-table.component";
 
 const OrderList: React.FunctionComponent<AppProps> = (props) => {
   return (
@@ -36,19 +37,19 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
             </TabList>
 
             <TabPanel>
-              <Table />
+              <DataTable />
             </TabPanel>
             <TabPanel>
-              <Table />
+              <DataTable />
             </TabPanel>
             <TabPanel>
-              <Table />
+              <DataTable />
             </TabPanel>
             <TabPanel>
-              <Table />
+              <DataTable />
             </TabPanel>
             <TabPanel>
-              <Table />
+              <DataTable />
             </TabPanel>
           </Tabs>
         </section>
