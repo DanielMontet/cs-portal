@@ -31,11 +31,15 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
             <TabList>
               <Tab>Received Orders</Tab>
               <Tab>Prepared Orders</Tab>
-              <Tab>Dispatched Orders</Tab>
+              <Tab>Allocated Orders</Tab>
+              <Tab>Orders on the way</Tab>
               <Tab>Delivered Orders</Tab>
               <Tab>Pending Orders</Tab>
             </TabList>
 
+            <TabPanel>
+              <DataTable />
+            </TabPanel>
             <TabPanel>
               <DataTable />
             </TabPanel>
@@ -60,37 +64,8 @@ const OrderList: React.FunctionComponent<AppProps> = (props) => {
 
 export default OrderList;
 
-function Table() {
-  return (
-    <table className="w-full">
-      <thead className="border-b border-gray-200 w-full">
-        <tr>
-          <th className="p-6 text-left text-sm">Customer Name</th>
-          <th className="p-6 text-left text-sm">Phone</th>
-          <th className="p-6 text-left text-sm">Orders</th>
-          <th className="p-6 text-left text-sm">Location</th>
-          <th className="p-6 text-left text-sm">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="p-6 text-left text-sm border-b border-gray-200">
-            Customer Name
-          </td>
-          <td className="p-6 text-left text-sm border-b border-gray-200">
-            Phone
-          </td>
-          <td className="p-6 text-left text-sm border-b border-gray-200">
-            Orders
-          </td>
-          <td className="p-6 text-left text-sm border-b border-gray-200">
-            Location
-          </td>
-          <td className="p-6 text-left text-sm border-b border-gray-200">
-            Action
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  );
-}
+// order received
+// order prepared
+// order allocated
+// order on its way
+// order delivered

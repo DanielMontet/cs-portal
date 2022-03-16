@@ -5,7 +5,7 @@ import { NavLink, Outlet } from "react-router-dom";
 
 const Layout: React.FunctionComponent<AppProps> = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
-  const activeLinkProps = "bg-primary text-white my-1 rounded-md px-5 py-2";
+  const activeLinkProps = "bg-secondary text-white my-1 rounded-md px-5 py-2";
   const defaultLinkProps =
     "bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2";
 
