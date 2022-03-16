@@ -19,9 +19,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="users" element={<UsersManagement />} />
           <Route path="customers" element={<CustomerList />} />
-          <Route path="orders" element={<OrderList />}>
-            <Route path=":orderid" element={<OrderDetail />} />
-          </Route>
+          <Route path="orders" element={<OrderList />}></Route>
+          <Route path="order-detail/:orderid" element={<OrderDetail />} />
           <Route path="customer-detail" element={<CustomerDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="reset-password" element={<ResetPassword />} />

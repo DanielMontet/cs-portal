@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableHead from "@mui/material/TableHead";
 import { TablePaginationActions } from "./table-utils";
+import { Link } from "react-router-dom";
 
 function createData(orderId: string, amount: number, status: string) {
   return { orderId, amount, status };
@@ -86,7 +87,15 @@ export default function OrderTable() {
               <TableCell style={{ width: 160 }} align="right">
                 {row.status}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right"></TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                <Link
+                  style={{ display: "block", margin: "1rem 0" }}
+                  to={`/order-detail/${row.orderId}`}
+                  key={row.orderId}
+                >
+                  View
+                </Link>
+              </TableCell>
             </TableRow>
           ))}
           {emptyRows > 0 && (
