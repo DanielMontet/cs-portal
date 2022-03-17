@@ -9,30 +9,26 @@ import Login from "./routes/Login/login.component";
 import ResetPassword from "./routes/ResetPassword/reset-password.component";
 import OrderDetail from "./routes/Oders/order-detail";
 import CustomerDetail from "./routes/Customers/customer-detail.component";
-import React, { useState } from "react";
-
-interface globalContextType {
-  orders?: any[];
-  setorders?: React.Dispatch<React.SetStateAction<{}[]>>;
-  users?: any[];
-  setUsers?: React.Dispatch<React.SetStateAction<{}[]>>;
-  customers?: any[];
-  setCustomers?: React.Dispatch<React.SetStateAction<{}[]>>;
-  isLoggedIn?: boolean;
-  setIsloggedIn?: React.Dispatch<React.SetStateAction<{}[]>>;
-  currentUser?: {};
-  setCurrentUser?: React.Dispatch<React.SetStateAction<{}[]>>;
-}
-
-export const GlobalAppContext = React.createContext<globalContextType>({});
+import { useState } from "react";
+import { GlobalAppContext, order } from "./types/props.types";
+import { getOrders } from "./lib/dummy-data";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
-  const [orders, setOrders] = useState([{}]);
+  const [orders, setOrders] = useState<order[]>(getOrders());
   const [users, setUsers] = useState([{}]);
   const [customers, setCustomers] = useState([{}]);
-  const state = {
+
+  const handleOrderSearch = (orderId: string) => {
+    //do something with id
+    const order = orders.filter((order) => {
+      if (order.orderId === orderId) return order;
+    });
+    return order;
+  };
+
+  const context = {
     orders,
     setOrders,
     users,
@@ -43,10 +39,15 @@ function App() {
     setIsLoggedIn,
     currentUser,
     setCurrentUser,
+    handleOrderSearch,
+  };
+
+  const handleOrderFilter = (state: string) => {
+    //do something with state
   };
 
   return (
-    <GlobalAppContext.Provider value={state}>
+    <GlobalAppContext.Provider value={context}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>

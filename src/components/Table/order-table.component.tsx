@@ -10,34 +10,17 @@ import Paper from "@mui/material/Paper";
 import TableHead from "@mui/material/TableHead";
 import { TablePaginationActions } from "./table-utils";
 import { Link } from "react-router-dom";
+import { order } from "../../types/props.types";
+import { AppProps } from "../../types/props.types";
 
-function createData(orderId: string, amount: number, status: string) {
-  return { orderId, amount, status };
-}
-
-const rows = [
-  createData("asdasdas", 305, "received"),
-  createData("asdsasda", 452, "prepared"),
-  createData("dsfdsfas", 262, "allocated"),
-  createData("Fasdasss", 159, "prepared"),
-  createData("sadsadss", 356, "delivered"),
-  createData("sadasdsa", 408, "prepared"),
-  createData("asdsadaa", 237, "allocated"),
-  createData("sadsasao", 375, "received"),
-  createData("Kiddsfds", 518, "on its way"),
-  createData("Lsdfsdf", 392, "received"),
-  createData("asdsadasd", 318, "on its way"),
-  createData("asdasdsad", 360, "delivered"),
-  createData("sdfdsffd", 437, "on its way"),
-];
-
-export default function OrderTable() {
+export default function OrderTable<AppProps>({ orderData }: any) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  console.log(orderData);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - orderData.length) : 0;
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -74,9 +57,12 @@ export default function OrderTable() {
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
+            ? orderData.slice(
+                page * rowsPerPage,
+                page * rowsPerPage + rowsPerPage
+              )
+            : orderData
+          ).map((row: order) => (
             <TableRow key={row.orderId}>
               <TableCell component="th" scope="row">
                 <Link
@@ -115,7 +101,7 @@ export default function OrderTable() {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={3}
-              count={rows.length}
+              count={orderData.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
