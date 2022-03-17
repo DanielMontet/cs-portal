@@ -1,13 +1,19 @@
 import { AppProps } from "../../types/props.types";
 import PerfectScrollbar from "react-perfect-scrollbar";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { GlobalAppContext } from "../../App";
 
 const Layout: React.FunctionComponent<AppProps> = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
+  const { isLoggedIn } = useContext(GlobalAppContext);
   const activeLinkProps = "bg-secondary text-white my-1 rounded-md px-5 py-2";
   const defaultLinkProps =
     "bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2";
+
+  useEffect(() => {
+    console.log(isLoggedIn);
+  }, []);
 
   return (
     <section className="h-screen grid grid-rows-48">
@@ -54,14 +60,14 @@ const Layout: React.FunctionComponent<AppProps> = () => {
             >
               Customer List
             </NavLink>
-            <NavLink
-              to="/customer-detail"
+            {/* <NavLink
+              to="/customer:id"
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
             >
               Customer Detail
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/users"
               className={({ isActive }) =>

@@ -11,27 +11,41 @@ import TableHead from "@mui/material/TableHead";
 import { TablePaginationActions } from "./table-utils";
 import { Link } from "react-router-dom";
 
-function createData(orderId: string, amount: number, status: string) {
-  return { orderId, amount, status };
+function createData(
+  itemId: string,
+  price: number,
+  quantity: number,
+  name: string,
+  imageUrl: string
+) {
+  return { itemId, price, quantity, name, imageUrl };
 }
 
 const rows = [
-  createData("asdasdas", 305, "received"),
-  createData("asdsasda", 452, "prepared"),
-  createData("dsfdsfas", 262, "allocated"),
-  createData("Fasdasss", 159, "prepared"),
-  createData("sadsadss", 356, "delivered"),
-  createData("sadasdsa", 408, "prepared"),
-  createData("asdsadaa", 237, "allocated"),
-  createData("sadsasao", 375, "received"),
-  createData("Kiddsfds", 518, "on its way"),
-  createData("Lsdfsdf", 392, "received"),
-  createData("asdsadasd", 318, "on its way"),
-  createData("asdasdsad", 360, "delivered"),
-  createData("sdfdsffd", 437, "on its way"),
+  createData(
+    "asdasdas",
+    305,
+    1,
+    "periperi chicken",
+    "https://picsum.photos/300/200"
+  ),
+  createData(
+    "asdsasda",
+    452,
+    1,
+    "chapati na mandondo",
+    "https://picsum.photos/300/200"
+  ),
+  createData(
+    "dsfdsfas",
+    262,
+    1,
+    "ugali na nyama",
+    "https://picsum.photos/300/200"
+  ),
 ];
 
-export default function OrderTable() {
+export default function OrderItemsTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -59,16 +73,19 @@ export default function OrderTable() {
         <TableHead>
           <TableRow>
             <TableCell>
-              <p className="text-current font-bold">Order ID</p>
+              <p className="text-current font-bold">Image</p>
+            </TableCell>
+            <TableCell>
+              <p className="text-current font-bold">Item ID</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Amount</p>
+              <p className="text-current font-bold">Name</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Status</p>
+              <p className="text-current font-bold">Price</p>
             </TableCell>
-            <TableCell align="right">
-              <p className="text-current font-bold">Action</p>
+            <TableCell align="center">
+              <p className="text-current font-bold">Quantity</p>
             </TableCell>
           </TableRow>
         </TableHead>
@@ -77,31 +94,20 @@ export default function OrderTable() {
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <TableRow key={row.orderId}>
+            <TableRow key={row.itemId}>
               <TableCell component="th" scope="row">
-                <Link
-                  className="text-blue-700 hover:text-blue-500"
-                  to={`/order-detail/${row.orderId}`}
-                  key={row.orderId}
-                >
-                  {row.orderId}
-                </Link>
+                <img
+                  src={row.imageUrl}
+                  alt="order item image"
+                  className="h-12 rounded"
+                />
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                {row.amount}
+              <TableCell component="th" scope="row">
+                {row.itemId}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                {row.status}
-              </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-                <Link
-                  className="text-blue-700 hover:text-blue-500"
-                  to={`/order-detail/${row.orderId}`}
-                  key={row.orderId}
-                >
-                  View
-                </Link>
-              </TableCell>
+              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.price}</TableCell>
+              <TableCell align="center">{row.quantity}</TableCell>
             </TableRow>
           ))}
           {emptyRows > 0 && (
@@ -134,9 +140,3 @@ export default function OrderTable() {
     </TableContainer>
   );
 }
-
-// order received
-// order prepared
-// order allocated
-// order on its way
-// order delivered
