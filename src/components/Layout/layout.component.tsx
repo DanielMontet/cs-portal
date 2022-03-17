@@ -60,38 +60,13 @@ const Layout: React.FunctionComponent<AppProps> = () => {
             >
               Customer List
             </NavLink>
-            {/* <NavLink
-              to="/customer:id"
-              className={({ isActive }) =>
-                isActive ? activeLinkProps : defaultLinkProps
-              }
-            >
-              Customer Detail
-            </NavLink> */}
             <NavLink
               to="/users"
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
             >
-              Users
-            </NavLink>
-          </div>
-          <div className="flex flex-col ml-6 mr-4">
-            <label className="my-2 text-current font-medium">
-              Authentication
-            </label>
-            <NavLink
-              to="/login"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-            >
-              Login
-            </NavLink>
-            <NavLink
-              to="/reset-password"
-              className="bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2"
-            >
-              Reset Password
+              Users List
             </NavLink>
           </div>
         </nav>

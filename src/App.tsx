@@ -57,8 +57,6 @@ function App() {
             <Route path="customers/:id" element={<CustomerDetail />} />
             <Route path="orders" element={<OrderList />}></Route>
             <Route path="order-detail/:orderid" element={<OrderDetail />} />
-            <Route path="login" element={<Login />} />
-            <Route path="reset-password" element={<ResetPassword />} />
             <Route
               path="*"
               element={
@@ -68,6 +66,8 @@ function App() {
               }
             />
           </Route>
+          <Route path="login" element={<Login />} />
+          <Route path="reset-password" element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </GlobalAppContext.Provider>
