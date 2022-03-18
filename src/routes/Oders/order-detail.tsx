@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import OrderItemsTable from "../../components/Table/order-items-table.component";
 import { AppProps } from "../../types/props.types";
 
 const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
+  const [date] = useState(new Date());
   return (
     <section className="h-full grid grid-cols-6 gap-5">
       <section className="shadow rounded-lg col-span-4 bg-white">
@@ -32,37 +34,135 @@ const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
           <div className="p-5">
             <OrderItemsTable />
           </div>
-          <div className="p-5 flex flex-col items-end">
-            <span className="grid grid-cols-6 items-center py-2 border-b border-b-slate-200 w-2/5">
-              <label className="text-slate-700 text-sm col-span-3" htmlFor="">
-                Delivery cost:
-              </label>
-              <p className="col-span-3 text-slate-600 text-sm text-right">
-                300
-              </p>
-            </span>
-            <span className="grid grid-cols-6 items-center py-2 border-b border-b-slate-200 w-2/5">
-              <label className="text-slate-700 text-sm col-span-3" htmlFor="">
-                Cutlery cost:
-              </label>
-              <p className="col-span-3 text-slate-600 text-sm text-right">20</p>
-            </span>
-            <span className="grid grid-cols-6 items-center py-2 border-b border-b-slate-200 w-2/5">
-              <label className="text-slate-700 text-sm col-span-3" htmlFor="">
-                Total:
-              </label>
-              <p className="col-span-3 text-slate-600 text-sm text-right">
-                500
-              </p>
-            </span>
-            <span className="grid grid-cols-6 items-center py-2 border-b border-b-slate-200 w-2/5">
-              <label className="text-slate-700 text-sm col-span-3" htmlFor="">
-                Overall Cost(KES):
-              </label>
-              <p className="col-span-3 text-slate-600 text-sm text-right">
-                8000
-              </p>
-            </span>
+          <div className="p-5 grid grid-cols-6 gap-48">
+            <div className="col-span-3">
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Received at:
+                </label>
+                <span className="col-span-3 flex items-center gap-5">
+                  <p className=" text-slate-600 text-sm text-right">
+                    {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    {`  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+                  </p>
+                </span>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Allocated at:
+                </label>
+                <span className="col-span-3 flex items-center gap-5">
+                  <p className=" text-slate-600 text-sm text-right">
+                    {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    {`  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+                  </p>
+                </span>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Picked up at:
+                </label>
+                <span className="col-span-3 flex items-center gap-5">
+                  <p className=" text-slate-600 text-sm text-right">
+                    {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    {`  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+                  </p>
+                </span>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Arrived Locale at:
+                </label>
+                <span className="col-span-3 flex items-center gap-5">
+                  <p className=" text-slate-600 text-sm text-right">
+                    {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    {`  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+                  </p>
+                </span>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Delivered at:
+                </label>
+                <span className="col-span-3 flex items-center gap-5">
+                  <p className=" text-slate-600 text-sm text-right">
+                    {`${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`}
+                  </p>
+                  <p className="text-slate-600 text-sm">
+                    {`  ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`}
+                  </p>
+                </span>
+              </span>
+            </div>
+            <div className="col-span-3">
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Delivery cost:
+                </label>
+                <p className="col-span-3 text-slate-600 text-sm text-right">
+                  300
+                </p>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Cutlery cost:
+                </label>
+                <p className="col-span-3 text-slate-600 text-sm text-right">
+                  20
+                </p>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Total:
+                </label>
+                <p className="col-span-3 text-slate-600 text-sm text-right">
+                  500
+                </p>
+              </span>
+              <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
+                <label
+                  className="text-slate-800 font-medium text-sm col-span-3"
+                  htmlFor=""
+                >
+                  Overall Cost(KES):
+                </label>
+                <p className="col-span-3 text-slate-600 text-sm text-right">
+                  8000
+                </p>
+              </span>
+            </div>
           </div>
         </main>
       </section>

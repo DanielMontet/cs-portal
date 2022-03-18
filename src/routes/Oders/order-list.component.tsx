@@ -43,19 +43,29 @@ const OrderList: React.FunctionComponent<AppProps> = () => {
           <DataTable orderData={orders} />
         </TabPanel>
         <TabPanel>
-          <DataTable orderData={orders} />
+          <DataTable
+            orderData={orders?.filter((order) => order.status === "prepared")}
+          />
         </TabPanel>
         <TabPanel>
-          <DataTable orderData={orders} />
+          <DataTable
+            orderData={orders?.filter((order) => order.status === "allocated")}
+          />
         </TabPanel>
         <TabPanel>
-          <DataTable orderData={orders} />
+          <DataTable
+            orderData={orders?.filter((order) => order.status === "on its way")}
+          />
         </TabPanel>
         <TabPanel>
-          <DataTable orderData={orders} />
+          <DataTable
+            orderData={orders?.filter((order) => order.status === "delivered")}
+          />
         </TabPanel>
         <TabPanel>
-          <DataTable orderData={orders} />
+          <DataTable
+            orderData={orders?.filter((order) => order.pending === true)}
+          />
         </TabPanel>
       </Tabs>
     );

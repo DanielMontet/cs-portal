@@ -5,11 +5,12 @@ export type AppProps = {
 	children?: any,
 	index?: number,
 	value?: number,
-	orderData?: order[]
+	orderData?: order[],
+	mealsData?: meal[]
 }
 
 interface globalContextType {
-	orders?: any[];
+	orders?: order[];
 	setorders?: React.Dispatch<React.SetStateAction<{}[]>>;
 	users?: any[];
 	setUsers?: React.Dispatch<React.SetStateAction<{}[]>>;
@@ -20,12 +21,22 @@ interface globalContextType {
 	currentUser?: {};
 	setCurrentUser?: React.Dispatch<React.SetStateAction<{}[]>>;
 	handleOrderSearch?: (orderId: string) => order[];
+	meals?: meal[]
 }
 
 export interface order {
 	orderId?: string;
 	amount?: number;
 	status?: string;
+	pending?: boolean
+}
+export interface meal {
+	mealId?: string
+	title?: string
+	sold?: number
+	remaining?: number
+	price?: number
+	img?: string
 }
 
 export const GlobalAppContext = React.createContext<globalContextType>({});

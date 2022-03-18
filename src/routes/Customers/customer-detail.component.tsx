@@ -16,22 +16,6 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
 
-const CustomerDetail: React.FunctionComponent<AppProps> = (props) => {
-  return (
-    <section className="shadow rounded-lg bg-white h-full">
-      <header className="border-b border-gray-200 p-5">
-        <label
-          className="text-current text-1xl font-medium"
-          htmlFor="customerList"
-        >
-          Customer Details
-        </label>
-      </header>
-      <CustomerDetailsNavigation />
-    </section>
-  );
-};
-
 function CustomerDetailsNavigation() {
   const [value, setValue] = React.useState(0);
 
@@ -290,6 +274,22 @@ const ActionsNavigation: React.FunctionComponent = (props) => {
         </div>
       </TabPanel>
     </Box>
+  );
+};
+
+const CustomerDetail: React.FunctionComponent<AppProps> = (props) => {
+  return (
+    <section className="shadow rounded-lg bg-white h-full">
+      <header className="border-b border-gray-200 p-5">
+        <label
+          className="text-current text-1xl font-medium"
+          htmlFor="customerList"
+        >
+          Customer Details
+        </label>
+      </header>
+      <CustomerDetailsNavigation />
+    </section>
   );
 };
 

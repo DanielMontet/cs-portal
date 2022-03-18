@@ -45,7 +45,15 @@ const Layout: React.FunctionComponent<AppProps> = () => {
                 isActive ? activeLinkProps : defaultLinkProps
               }
             >
-              Today's Orders
+              Orders V1
+            </NavLink>
+            <NavLink
+              to="/orders2"
+              className={({ isActive }) =>
+                isActive ? activeLinkProps : defaultLinkProps
+              }
+            >
+              Orders V2
             </NavLink>
             <NavLink
               to="/customers"

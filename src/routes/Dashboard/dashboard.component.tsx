@@ -1,7 +1,8 @@
-import { meals } from "../../lib/dummy-data";
-import { AppProps } from "../../types/props.types";
+import { useContext } from "react";
+import { AppProps, GlobalAppContext } from "../../types/props.types";
 
 const Dashboard: React.FunctionComponent<AppProps> = (props) => {
+  const { meals } = useContext(GlobalAppContext);
   return (
     <section className="grid grid-rows-48 h-full">
       <header className="row-span-4">
@@ -72,7 +73,7 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
                 </tr>
               </thead>
               <tbody className=" divide-y divide-gray-200">
-                {meals.map((meal) => {
+                {meals!.map((meal) => {
                   return (
                     <tr className="">
                       <td className="flex items-center gap-3 my-3 pl-5">

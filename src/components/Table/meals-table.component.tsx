@@ -10,17 +10,16 @@ import Paper from "@mui/material/Paper";
 import TableHead from "@mui/material/TableHead";
 import { TablePaginationActions } from "./table-utils";
 import { Link } from "react-router-dom";
-import { order } from "../../types/props.types";
+import { meal, order } from "../../types/props.types";
 import { AppProps } from "../../types/props.types";
 
-export default function OrderTable<AppProps>({ orderData }: any) {
+export default function MealsTable<AppProps>({ mealsData }: any) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  console.log(orderData);
 
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - orderData.length) : 0;
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - mealsData.length) : 0;
 
   const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
@@ -42,51 +41,64 @@ export default function OrderTable<AppProps>({ orderData }: any) {
         <TableHead>
           <TableRow>
             <TableCell>
-              <p className="text-current font-bold">Order ID</p>
+              <p className="text-current font-bold">Title</p>
+            </TableCell>
+            <TableCell>
+              <p className="text-current font-bold">Meal ID</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Amount</p>
+              <p className="text-current font-bold">Sold</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Status</p>
+              <p className="text-current font-bold">Remaining</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Action</p>
+              <p className="text-current font-bold">Price</p>
+            </TableCell>
+            <TableCell align="right">
+              <p className="text-current font-bold">Quantity</p>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? orderData.slice(
+            ? mealsData.slice(
                 page * rowsPerPage,
                 page * rowsPerPage + rowsPerPage
               )
-            : orderData
-          ).map((row: order) => (
-            <TableRow key={row.orderId}>
+            : mealsData
+          ).map((row: meal) => (
+            <TableRow key={row.mealId}>
               <TableCell component="th" scope="row">
-                <Link
-                  className="text-blue-700 hover:text-blue-500"
-                  to={`/orders/${row.orderId}`}
-                  key={row.orderId}
-                >
-                  {row.orderId}
-                </Link>
+                <span className="flex items-center gap-5">
+                  <img className="h-10 w-10 rounded-lg" src={row.img} alt="" />
+                  <p>{row.title}</p>
+                </span>
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.mealId}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.amount}
+                {row.sold}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.status}
+                {row.remaining}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                <Link
-                  className="text-blue-700 hover:text-blue-500"
-                  to={`/order-detail/${row.orderId}`}
-                  key={row.orderId}
-                >
-                  View
-                </Link>
+                {row.price}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                <span className="flex gap-0 items-center justify-center">
+                  <button className="bg-gray-200 border-x border-y border-gray-400 text-current font-medium text-sm px-3 py-2">
+                    -
+                  </button>
+                  <span className="border-y border-gray-400 px-3 py-2" id="">
+                    0
+                  </span>
+                  <button className="bg-gray-200 border-x border-y border-gray-400 text-current font-medium text-sm px-3 py-2">
+                    +
+                  </button>
+                </span>
               </TableCell>
             </TableRow>
           ))}
@@ -101,7 +113,7 @@ export default function OrderTable<AppProps>({ orderData }: any) {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={3}
-              count={orderData.length}
+              count={mealsData.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
