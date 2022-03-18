@@ -39,14 +39,14 @@ const Layout: React.FunctionComponent<AppProps> = () => {
             >
               Dashboard
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/orders"
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
             >
               Orders V1
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/orders2"
               className={({ isActive }) =>
