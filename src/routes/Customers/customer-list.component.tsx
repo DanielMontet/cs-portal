@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { AppProps } from "../../types/props.types";
 
 const CustomerList: React.FunctionComponent<AppProps> = (props) => {
@@ -37,7 +38,9 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
             <tbody>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Customer Name
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
@@ -54,7 +57,9 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Customer Name
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
@@ -71,7 +76,9 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Customer Name
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
@@ -88,7 +95,9 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Customer Name
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
@@ -105,7 +114,9 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Customer Name
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone

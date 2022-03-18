@@ -13,6 +13,7 @@ import { useState } from "react";
 import { GlobalAppContext, meal, order } from "./types/props.types";
 import { getMeals, getOrders } from "./lib/dummy-data";
 import OrderList2 from "./routes/Oders/order-list-2.component";
+import UserList from "./routes/Users/users.component";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -63,6 +64,7 @@ function App() {
             <Route path="orders" element={<OrderList />}></Route>
             <Route path="orders/:orderid" element={<OrderDetail />} />
             <Route path="orders2" element={<OrderList2 />}></Route>
+            <Route path="users" element={<UserList />}></Route>
             <Route
               path="*"
               element={
