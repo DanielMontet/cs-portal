@@ -15,7 +15,7 @@ const OrderList2: React.FunctionComponent<AppProps> = () => {
   const [query, setQuery] = useState({
     orderId: null,
     phoneNumber: null,
-    date: null,
+    date: null
   });
   const { orders, meals, handleOrderSearch } = useContext(GlobalAppContext);
   const [orderResult, setOrderResult] = useState<null | order[]>(null);
@@ -31,8 +31,8 @@ const OrderList2: React.FunctionComponent<AppProps> = () => {
   }
 
   return (
-    <section className="h-full shadow rounded-lg bg-white">
-      <header className="border-b border-gray-200 p-5">
+    <section className="h-full shadow rounded-lg bg-white grid grid-cols-6 min-w-1000 sm:min-width-fit">
+      <header className="border-b border-gray-200 p-5 col-span-6">
         <label
           className="text-current text-1xl font-medium"
           htmlFor="customerList"
@@ -40,7 +40,7 @@ const OrderList2: React.FunctionComponent<AppProps> = () => {
           Orders
         </label>
       </header>
-      <section>
+      <section className="col-span-6">
         <section className="w-full p-5">
           <section className="flex gap-5">
             <FormControl variant="standard">

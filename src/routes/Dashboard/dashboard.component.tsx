@@ -4,8 +4,8 @@ import { AppProps, GlobalAppContext } from "../../types/props.types";
 const Dashboard: React.FunctionComponent<AppProps> = (props) => {
   const { meals } = useContext(GlobalAppContext);
   return (
-    <section className="grid grid-rows-48 h-full">
-      <header className="row-span-4">
+    <section className="grid grid-rows-48 grid-cols-6 h-full gap-5">
+      <header className=" row-span-2 sm:row-span-4 col-span-6">
         <div className="flex flex-row items-center px-5 py-4 bg-white rounded-lg shadow">
           <div className="flex flex-row items-center">
             <label htmlFor="kuneHubs" className="mr-2">
@@ -27,8 +27,8 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
           </div>
         </div>
       </header>
-      <section className="row-span-42 flex flex-col gap-5 shadow">
-        <div className="grid grid-cols-4 gap-5 mb-3">
+      <section className=" row-span-46 sm:row-span-42 flex flex-col gap-5 col-span-6">
+        <div className="grid sm:grid-cols-4 gap-5 mb-3">
           <div className="bg-primary text-white text-1xl fs rounded-lg h-32 p-5">
             Total Orders
           </div>
