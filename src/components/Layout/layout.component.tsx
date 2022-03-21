@@ -1,5 +1,5 @@
 import { AppProps, GlobalAppContext } from "../../types/props.types";
-import PerfectScrollbar from "react-perfect-scrollbar";
+import span from "react-perfect-scrollbar";
 import { useContext, useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -12,11 +12,11 @@ const Layout: React.FunctionComponent<AppProps> = () => {
 
   return (
     <section
-      className={`h-screen grid grid-rows-48 ${
-        isNavOpen ? "overflow-hidden	" : ""
-      }`}
+      className={`app-container h-screen grid grid-rows-48 
+        ${isNavOpen && "overflow-hidden sm:overflow-auto"}
+      `}
     >
-      <header className="row-span-5 sm:row-span-4 md:row-span-4 lg:row-span-4 grid grid-cols-48">
+      <header className="app-header row-span-5 sm:row-span-4 grid grid-cols-48">
         <div className="h-full flex items-center justify-between col-span-48 md:col-span-7 lg:col-span-7">
           <img
             src="/kune_landscape_logo.svg"
@@ -31,9 +31,9 @@ const Layout: React.FunctionComponent<AppProps> = () => {
           />
         </div>
       </header>
-      <section className="row-span-47 sm:row-span-47 grid grid-cols-48">
+      <section className="app-main row-span-43 sm:row-span-44 grid grid-cols-48 ">
         <nav
-          className={`transition-all ease-in-out duration-75 bg-white h-full ${
+          className={`sidenav transition-all ease-in-out duration-75 bg-white h-full ${
             isNavOpen
               ? "absolute w-3/4 z-50 top-0 sm:w-auto sm:relative sm:col-span-7"
               : "hidden"
@@ -55,7 +55,6 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
-              onClick={(e) => setIsNavOpen(false)}
             >
               Dashboard
             </NavLink>
@@ -64,7 +63,6 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
-              onClick={(e) => setIsNavOpen(false)}
             >
               Orders V2
             </NavLink>
@@ -73,7 +71,6 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
-              onClick={(e) => setIsNavOpen(false)}
             >
               Customer List
             </NavLink>
@@ -82,7 +79,6 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
-              onClick={(e) => setIsNavOpen(false)}
             >
               Users List
             </NavLink>
@@ -92,22 +88,21 @@ const Layout: React.FunctionComponent<AppProps> = () => {
           className={`mask ${
             isNavOpen
               ? "absolute z-40 opacity-50 w-screen h-screen bg-current top-0 sm:block sm:w-0 sm:h-0"
-              : ""
+              : "hidden"
           }`}
           onClick={(e) => setIsNavOpen(false)}
         ></div>
         <main
-          className={`${
+          className={`inner-app-container bg-blue-100 rounded-tl-lg p-3 sm:pt-6 sm:px-6 transition-all ease-in-out duration-75 min-w-fit sm:row-span-48  grid grid-rows-48 overfow-scroll ${
             isNavOpen
               ? "col-span-48 sm:col-span-41"
               : "col-span-48 sm:col-span-48 ml-2 sm:ml-5"
-          }  bg-blue-100 rounded-tl-lg p-3 sm:pt-6 sm:px-6 grid 
-          grid-rows-48 transition-all ease-in-out duration-75 min-w-fit`}
+          }`}
         >
-          <PerfectScrollbar className="row-span-48 sm:row-span-42">
+          <span className={`scrollbar row-span-47 min-h-screen`}>
             <Outlet />
-          </PerfectScrollbar>
-          <div className="hidden sm:block sm:row-span-5"></div>
+          </span>
+          <div className="hidden sm:block sm:row-span-1  "></div>
         </main>
       </section>
     </section>

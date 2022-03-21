@@ -27,7 +27,7 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
           </div>
         </div>
       </header>
-      <section className=" row-span-46 sm:row-span-42 flex flex-col gap-5 col-span-6">
+      <section className="row-span-47  sm:row-span-42 flex flex-col gap-5 col-span-6">
         <div className="grid sm:grid-cols-4 gap-5 mb-3">
           <div className="bg-primary text-white text-1xl fs rounded-lg h-32 p-5">
             Total Orders
@@ -73,9 +73,9 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
                 </tr>
               </thead>
               <tbody className=" divide-y divide-gray-200">
-                {meals!.map((meal) => {
+                {meals!.map((meal, index) => {
                   return (
-                    <tr className="">
+                    <tr className="" key={index}>
                       <td className="flex items-center gap-3 my-3 pl-5">
                         <img
                           src={meal.img}
