@@ -6,8 +6,8 @@ import { AppProps } from "../../types/props.types";
 const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
   const [date] = useState(new Date());
   return (
-    <section className="h-full grid grid-cols-6 gap-5">
-      <section className="shadow rounded-lg col-span-4 bg-white">
+    <section className="max-h-fit min-w-1000 grid grid-cols-6 gap-5 grid-rows-6 sm:grid-rows-none">
+      <section className="shadow rounded-lg col-span-6 sm:col-span-4 bg-white row-span-2 ">
         <header className="border-b border-gray-200 p-5 flex justify-between">
           <label className="text-current font-medium text-1xl " htmlFor="">
             Order Details
@@ -34,7 +34,7 @@ const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
           <div className="p-5">
             <OrderItemsTable />
           </div>
-          <div className="p-5 grid grid-cols-6 gap-48">
+          <div className="p-5 grid grid-cols-6 gap-5 sm:gap-48">
             <div className="col-span-3">
               <span className="w-full grid grid-cols-6 items-center py-2 border-b border-b-slate-200">
                 <label
@@ -166,7 +166,7 @@ const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
           </div>
         </main>
       </section>
-      <section className="shadow rounded-lg col-span-2 bg-white">
+      <section className="shadow rounded-lg col-span-6 sm:col-span-2 bg-white row-span-2 ">
         <section>
           <header className="border-b border-gray-200 p-5">
             <label
@@ -234,7 +234,7 @@ const OrderDetail: React.FunctionComponent<AppProps> = (props) => {
           </main>
         </section>
       </section>
-      <section className="shadow col-span-6 rounded-lg h-full bg-white">
+      <section className="shadow col-span-6 rounded-lg h-full bg-white row-span-2 ">
         <header className="border-b border-gray-200 p-5 flex justify-between">
           <label className="text-current font-medium text-1xl " htmlFor="">
             CS Order Notes

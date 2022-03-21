@@ -31,8 +31,8 @@ const OrderList2: React.FunctionComponent<AppProps> = () => {
   }
 
   return (
-    <section className="min-h-fit shadow rounded-lg bg-white flex flex-col">
-      <header className="border-b border-gray-200 p-5 min-w-fit row-span-1">
+    <section className="min-h-fit h-full shadow rounded-lg bg-white flex flex-col">
+      <header className="border-b border-gray-200 p-5 min-w-fit">
         <label
           className="text-current text-1xl font-medium"
           htmlFor="customerList"
@@ -40,7 +40,7 @@ const OrderList2: React.FunctionComponent<AppProps> = () => {
           Orders
         </label>
       </header>
-      <section className="min-w-fit row-span-47">
+      <section className="min-w-fit">
         <section className="w-full p-5">
           <section className="flex gap-5">
             <FormControl variant="standard">
