@@ -11,12 +11,16 @@ const Layout: React.FunctionComponent<AppProps> = () => {
     "bg-blue-100 text-slate-600 my-1 rounded-md px-5 py-2";
 
   return (
-    <section className="h-screen grid grid-rows-48">
+    <section
+      className={`h-screen grid grid-rows-48 ${
+        isNavOpen ? "overflow-hidden	" : ""
+      }`}
+    >
       <header className="row-span-5 sm:row-span-4 md:row-span-4 lg:row-span-4 grid grid-cols-48">
         <div className="h-full flex items-center justify-between col-span-48 md:col-span-7 lg:col-span-7">
           <img
             src="/kune_landscape_logo.svg"
-            className="hidden sm:block"
+            className="hidden sm:block sm:h-3/5 sm:w-3/5"
             alt=""
           />
           <img
@@ -35,6 +39,15 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               : "hidden"
           }`}
         >
+          {isNavOpen && (
+            <span className="relative ">
+              <img
+                src="/kune_landscape_logo.svg"
+                className="w-3/5 p-3  sm:hidden"
+                alt=""
+              />
+            </span>
+          )}
           <div className="flex flex-col ml-6 mr-4">
             <label className="my-2 text-current font-medium">Dashboard</label>
             <NavLink
@@ -42,6 +55,7 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
+              onClick={(e) => setIsNavOpen(false)}
             >
               Dashboard
             </NavLink>
@@ -50,6 +64,7 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
+              onClick={(e) => setIsNavOpen(false)}
             >
               Orders V2
             </NavLink>
@@ -58,6 +73,7 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
+              onClick={(e) => setIsNavOpen(false)}
             >
               Customer List
             </NavLink>
@@ -66,6 +82,7 @@ const Layout: React.FunctionComponent<AppProps> = () => {
               className={({ isActive }) =>
                 isActive ? activeLinkProps : defaultLinkProps
               }
+              onClick={(e) => setIsNavOpen(false)}
             >
               Users List
             </NavLink>
