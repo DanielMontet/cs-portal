@@ -1,14 +1,38 @@
-import { AppProps } from "../../types/props.types";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import { useContext, useState } from "react";
+import { Outlet } from "react-router-dom";
+import UserListTable from "../../components/Table/users-table.component";
+import {
+  TabPanel,
+  a11yProps,
+} from "../../components/Tabnav/tab-nav-utils.component";
+import { AppProps, GlobalAppContext } from "../../types/props.types";
+import AddUser from "./add-user.component";
 
-const UserList: React.FunctionComponent<AppProps> = (props) => {
+const UserManagementTab: React.FunctionComponent = () => {
+  const [value, setValue] = useState(0);
+  const { users } = useContext(GlobalAppContext);
+
+  const handleChange = (event: any, newValue: any) => {
+    setValue(newValue);
+  };
+
   return (
-    <section className="h-full shadow rounded-lg bg-white">
-      <header className="border-b border-gray-200 p-5">
-        <label className="text-current text-1xl font-medium" htmlFor="UserList">
-          User List
-        </label>
-      </header>
-      <section>
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          className="px-5 pt-5"
+        >
+          <Tab label="Users" {...a11yProps(0)} />
+          <Tab label="Add User" {...a11yProps(1)} />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
         <section className="w-full p-5">
           <span className="border border-gray-400 rounded-lg grid grid-cols-6  w-96 hover:border-blue-500">
             <div className="grid grid-cols-6 col-span-4 items-center px-4 py-2">
@@ -20,225 +44,26 @@ const UserList: React.FunctionComponent<AppProps> = (props) => {
             </button>
           </span>
         </section>
-        <section className="w-full">
-          <table className="w-full">
-            <thead className="border-b border-gray-200 w-full">
-              <tr>
-                <th className="p-6 text-left text-sm">User Name</th>
-                <th className="p-6 text-left text-sm">Phone</th>
-                <th className="p-6 text-left text-sm">Orders</th>
-                <th className="p-6 text-left text-sm">Location</th>
-                <th className="p-6 text-left text-sm">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  User Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+        <UserListTable userData={users} />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <AddUser />
+      </TabPanel>
+    </Box>
+  );
+};
+
+const UserList: React.FunctionComponent<AppProps> = (props) => {
+  return (
+    <section className="h-full shadow rounded-lg bg-white">
+      <header className="border-b border-gray-200 p-5">
+        <label className="text-current text-1xl font-medium" htmlFor="UserList">
+          User Management
+        </label>
+      </header>
+      <section className="w-full">
+        <UserManagementTab />
+        {/* <Outlet /> */}
       </section>
     </section>
   );

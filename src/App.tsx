@@ -4,26 +4,25 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./routes/Dashboard/dashboard.component";
 import UsersManagement from "./routes/Users/users.component";
 import CustomerList from "./routes/Customers/customer-list.component";
-import OrderList from "./routes/Oders/order-list.component";
 import Login from "./routes/Login/login.component";
 import ResetPassword from "./routes/ResetPassword/reset-password.component";
-import OrderDetail from "./routes/Oders/order-detail";
+import OrderDetail from "./routes/Orders/order-detail";
 import CustomerDetail from "./routes/Customers/customer-detail.component";
 import { useState } from "react";
-import { GlobalAppContext, meal, order } from "./types/props.types";
-import { getMeals, getOrders } from "./lib/dummy-data";
-import OrderList2 from "./routes/Oders/order-list-2.component";
+import { GlobalAppContext, meal, order, user } from "./types/props.types";
+import { getMeals, getOrders, getUsers } from "./lib/dummy-data";
+import OrderList from "./routes/Orders/order-management.component";
 import UserList from "./routes/Users/users.component";
+import UserDetail from "./routes/Users/user-detailcomponent";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
   const [orders, setOrders] = useState<order[]>(getOrders());
   const [meals, setMeals] = useState<meal[]>(getMeals());
-  const [users, setUsers] = useState([{}]);
+  const [users, setUsers] = useState<user[]>(getUsers);
   const [customers, setCustomers] = useState([{}]);
-  console.log(orders);
-
+  console.log(users);
   const handleOrderSearch = (orderId: string) => {
     //do something with id
     const order = orders.filter((order) => {
@@ -60,11 +59,11 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="users" element={<UsersManagement />} />
             <Route path="customers" element={<CustomerList />} />
-            <Route path="customers/:id" element={<CustomerDetail />} />
+            <Route path="customers/:customerId" element={<CustomerDetail />} />
+            <Route path="orders/:orderId" element={<OrderDetail />} />
             <Route path="orders" element={<OrderList />}></Route>
-            <Route path="orders/:orderid" element={<OrderDetail />} />
-            <Route path="orders2" element={<OrderList2 />}></Route>
             <Route path="users" element={<UserList />}></Route>
+            <Route path="users/:userId" element={<UserDetail />}></Route>
             <Route
               path="*"
               element={

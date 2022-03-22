@@ -1,3 +1,4 @@
+import { ExecOptionsWithStringEncoding } from "child_process";
 import React from "react";
 
 export type AppProps = {
@@ -6,13 +7,17 @@ export type AppProps = {
 	index?: number,
 	value?: number,
 	orderData?: order[],
-	mealsData?: meal[]
+	mealsData?: meal[],
+	userData?: user[],
+	isNavOpen?: boolean,
+	setIsNavOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+	editUser?: boolean
 }
 
 interface globalContextType {
 	orders?: order[];
 	setorders?: React.Dispatch<React.SetStateAction<{}[]>>;
-	users?: any[];
+	users?: user[];
 	setUsers?: React.Dispatch<React.SetStateAction<{}[]>>;
 	customers?: any[];
 	setCustomers?: React.Dispatch<React.SetStateAction<{}[]>>;
@@ -38,5 +43,22 @@ export interface meal {
 	price?: number
 	img?: string
 }
+
+export interface user {
+	id?: number,
+	name?: string,
+	email?: string,
+	address?: {
+		street?: string,
+		suite?: string,
+		city?: string,
+		zipcode?: string,
+		geo?: {
+			lat: string,
+			lng: string
+		}
+	}
+}
+
 
 export const GlobalAppContext = React.createContext<globalContextType>({});

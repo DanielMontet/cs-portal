@@ -16,7 +16,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import Button from "@mui/material/Button";
 
-function CustomerDetailsNavigation() {
+function CustomerDetailsTab() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: any, newValue: any) => {
@@ -288,7 +288,7 @@ const CustomerDetail: React.FunctionComponent<AppProps> = (props) => {
           Customer Details
         </label>
       </header>
-      <CustomerDetailsNavigation />
+      <CustomerDetailsTab />
     </section>
   );
 };
