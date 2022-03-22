@@ -57,13 +57,12 @@ const UserList: React.FunctionComponent<AppProps> = (props) => {
   return (
     <section className="h-full shadow rounded-lg bg-white">
       <header className="border-b border-gray-200 p-5">
-        <label className="text-current text-1xl font-medium" htmlFor="UserList">
-          User Management
+        <label className="text-current text-sm font-medium" htmlFor="UserList">
+          List / Add Users
         </label>
       </header>
       <section className="w-full">
         <UserManagementTab />
-        {/* <Outlet /> */}
       </section>
     </section>
   );

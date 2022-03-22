@@ -14,6 +14,7 @@ import { getMeals, getOrders, getUsers } from "./lib/dummy-data";
 import OrderList from "./routes/Orders/order-management.component";
 import UserList from "./routes/Users/users.component";
 import UserDetail from "./routes/Users/user-detailcomponent";
+import UserManagementLayout from "./routes/Users/users-management-layout";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -62,8 +63,10 @@ function App() {
             <Route path="customers/:customerId" element={<CustomerDetail />} />
             <Route path="orders/:orderId" element={<OrderDetail />} />
             <Route path="orders" element={<OrderList />}></Route>
-            <Route path="users" element={<UserList />}></Route>
-            <Route path="users/:userId" element={<UserDetail />}></Route>
+            <Route path="users" element={<UserManagementLayout />}>
+              <Route index element={<UserList />}></Route>
+              <Route path=":userId" element={<UserDetail />}></Route>
+            </Route>
             <Route
               path="*"
               element={
