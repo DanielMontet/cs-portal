@@ -23,7 +23,7 @@ function App() {
   const [meals, setMeals] = useState<meal[]>(getMeals());
   const [users, setUsers] = useState<user[]>(getUsers);
   const [customers, setCustomers] = useState([{}]);
-  console.log(users);
+
   const handleOrderSearch = (orderId: string) => {
     //do something with id
     const order = orders.filter((order) => {

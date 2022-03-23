@@ -19,7 +19,7 @@ export const AddOrEditUserForm: React.FunctionComponent<AppProps> = ({
       className="grid grid-cols-6 gap-5 mt-5 px-5"
       onSubmit={(e) => e.preventDefault()}
     >
-      <section className="border border-blue-200 col-span-3 p-5 rounded-lg">
+      <div className="border border-blue-200 col-span-3 p-5 rounded-lg">
         <label>Personal Information</label>
         <div className="mt-4 grid grid-cols-6 gap-4">
           <TextField
@@ -37,8 +37,8 @@ export const AddOrEditUserForm: React.FunctionComponent<AppProps> = ({
             className="col-span-3"
           />
         </div>
-      </section>
-      <section className="border border-blue-200 col-span-3 p-5 rounded-lg">
+      </div>
+      <div className="border border-blue-200 col-span-3 p-5 rounded-lg">
         <label>Contact Information</label>
         <div className="mt-4 grid grid-cols-6 gap-4">
           <TextField
@@ -57,8 +57,8 @@ export const AddOrEditUserForm: React.FunctionComponent<AppProps> = ({
             className="col-span-3"
           />
         </div>
-      </section>
-      <section className="col-span-6 flex gap-3 justify-end">
+      </div>
+      <div className="col-span-6 flex gap-3 justify-end">
         {editUser && (
           <Button color="secondary" variant="contained" size="small">
             Edit
@@ -67,7 +67,7 @@ export const AddOrEditUserForm: React.FunctionComponent<AppProps> = ({
         <Button variant="contained" size="small" className="">
           Save
         </Button>
-      </section>
+      </div>
     </form>
   );
 };

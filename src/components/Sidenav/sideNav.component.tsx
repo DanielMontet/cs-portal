@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AppProps } from "../../types/props.types";
 
 const SideNav: React.FunctionComponent<AppProps> = ({
