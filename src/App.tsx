@@ -15,6 +15,7 @@ import OrderList from "./routes/Orders/order-management.component";
 import UserList from "./routes/Users/users.component";
 import UserDetail from "./routes/Users/user-detailcomponent";
 import UserManagementLayout from "./routes/Users/users-management-layout";
+import OrderManagementLayout from "./routes/Orders/order-management-layout.component";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,8 +62,11 @@ function App() {
             <Route path="users" element={<UsersManagement />} />
             <Route path="customers" element={<CustomerList />} />
             <Route path="customers/:customerId" element={<CustomerDetail />} />
-            <Route path="orders/:orderId" element={<OrderDetail />} />
-            <Route path="orders" element={<OrderList />}></Route>
+            <Route path="orders" element={<OrderManagementLayout />}>
+              <Route index element={<OrderList />} />
+              <Route path=":orderId" element={<OrderDetail />} />
+            </Route>
+
             <Route path="users" element={<UserManagementLayout />}>
               <Route index element={<UserList />}></Route>
               <Route path=":userId" element={<UserDetail />}></Route>

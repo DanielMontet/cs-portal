@@ -43,7 +43,7 @@ const SideNav: React.FunctionComponent<AppProps> = ({
               isActive ? activeLinkProps : defaultLinkProps
             }
           >
-            Orders V2
+            Order Management
           </NavLink>
           <NavLink
             to="/customers"
@@ -51,7 +51,7 @@ const SideNav: React.FunctionComponent<AppProps> = ({
               isActive ? activeLinkProps : defaultLinkProps
             }
           >
-            Customer List
+            Customer Management
           </NavLink>
           <NavLink
             to="/users"
