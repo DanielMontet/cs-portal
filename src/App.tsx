@@ -9,13 +9,19 @@ import ResetPassword from "./routes/ResetPassword/reset-password.component";
 import OrderDetail from "./routes/Orders/order-detail";
 import CustomerDetail from "./routes/Customers/customer-detail.component";
 import { useState } from "react";
-import { GlobalAppContext, meal, order, user } from "./types/props.types";
+import {
+  comment,
+  GlobalAppContext,
+  meal,
+  order,
+  user,
+} from "./types/props.types";
 import { getMeals, getOrders, getUsers } from "./lib/dummy-data";
-import OrderList from "./routes/Orders/order-management.component";
 import UserList from "./routes/Users/users.component";
 import UserDetail from "./routes/Users/user-detailcomponent";
 import UserManagementLayout from "./routes/Users/users-management-layout";
 import OrderManagementLayout from "./routes/Orders/order-management-layout.component";
+import OrderList from "./routes/Orders/order-list.component";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,7 +29,8 @@ function App() {
   const [orders, setOrders] = useState<order[]>(getOrders());
   const [meals, setMeals] = useState<meal[]>(getMeals());
   const [users, setUsers] = useState<user[]>(getUsers);
-  const [customers, setCustomers] = useState([{}]);
+  const [customers, setCustomers] = useState<any>(null);
+  const [comments, setComments] = useState<comment[] | undefined>([]);
 
   const handleOrderSearch = (orderId: string) => {
     //do something with id
@@ -46,6 +53,8 @@ function App() {
     setCurrentUser,
     handleOrderSearch,
     meals,
+    comments,
+    setComments,
   };
 
   const handleOrderFilter = (state: string) => {

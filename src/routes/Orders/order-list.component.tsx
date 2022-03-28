@@ -2,77 +2,176 @@ import { AppProps, GlobalAppContext, order } from "../../types/props.types";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import DataTable from "../../components/Table/order-table.component";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import Input from "@mui/material/Input";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import BasicSelect from "../../components/FormControls/select.component";
+import MealsTable from "../../components/Table/meals-table.component";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
+const CustomerOrderForm: React.FunctionComponent<AppProps> = () => {
+  return (
+    <section>
+      <div className="p-5 grid grid-cols-6 gap-4">
+        <section className="border border-blue-200 col-span-3 p-5 rounded-lg">
+          <label>Personal Information</label>
+          <div className="mt-4 grid grid-cols-6 gap-4">
+            <TextField
+              id="outlined-basic"
+              label="First Name"
+              variant="outlined"
+              size="small"
+              className="col-span-3"
+            />
+            <TextField
+              id="outlined-basic"
+              label="Last Name"
+              variant="outlined"
+              size="small"
+              className="col-span-3"
+            />
+            <TextField
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              size="small"
+              className="col-span-3"
+            />
+          </div>
+        </section>
+        <section className="border border-blue-200 col-span-3 p-5 rounded-lg">
+          <label>Delivery Information</label>
+          <div className="mt-4 grid grid-cols-6 gap-4">
+            <TextField
+              id="outlined-basic"
+              label="Delivery Address"
+              variant="outlined"
+              size="small"
+              className="col-span-3"
+            />
+            <TextField
+              id="outlined-basic"
+              label="Company/Apartment No"
+              variant="outlined"
+              size="small"
+              className="col-span-3"
+            />
+            <TextField
+              id="outlined-basic"
+              label="Note"
+              variant="outlined"
+              size="small"
+              className="col-span-6"
+              multiline={true}
+              rows={10}
+            />
+          </div>
+        </section>
+      </div>
+      <div className="p-5 flex justify-end">
+        <Button size="small" className="bg-blue-500 " variant="contained">
+          Save
+        </Button>
+      </div>
+    </section>
+  );
+};
+
+const OrderPanel: React.FunctionComponent<AppProps> = ({ mealsData }) => {
+  const [cart, setCart] = useState({ count: 5 });
+  const [userDetails, setUserDetails] = useState({});
+
+  return (
+    <form>
+      <section className="p-5">
+        <header className="flex justify-between items-center">
+          <p className="text-slate-700 font-medium">Make Order</p>
+        </header>
+        <section className="grid grid-cols-48">
+          <section className="col-span-45">
+            <Tabs className="mt-5">
+              <TabList>
+                <Tab>
+                  <p className="text-sm font-medium text-slate-700">Meals</p>
+                </Tab>
+                <Tab>
+                  <p className="text-sm font-medium text-slate-700">
+                    Customer details
+                  </p>
+                </Tab>
+                <Tab>
+                  <p className="text-sm font-medium text-slate-700">
+                    Order fulfilment
+                  </p>
+                </Tab>
+              </TabList>
+
+              <TabPanel>
+                <section className="mt-5 flex-col gap-5 px-3">
+                  <section className="flex items-center gap-8 ">
+                    <BasicSelect
+                      name="Hubs"
+                      default="Maua"
+                      items={["MAUA", "THIKA ROAD", "SAMEER", "CBD"]}
+                    />
+                    <FormControl variant="standard">
+                      <InputLabel htmlFor="input-with-icon-adornment">
+                        Meal
+                      </InputLabel>
+                      <Input id="input-with-icon-adornment" />
+                    </FormControl>
+                    <button className="rounded-lg bg-blue-500 px-5 py-3 text-white text-sm">
+                      search
+                    </button>
+                  </section>
+                  <MealsTable mealsData={mealsData} />
+                </section>
+              </TabPanel>
+              <TabPanel>
+                <section>
+                  <CustomerOrderForm />
+                </section>
+              </TabPanel>
+              <TabPanel>
+                <section></section>
+              </TabPanel>
+            </Tabs>
+          </section>
+          <section className="col-span-3">
+            <div className="relative absolute right-8 top-8 ">
+              <img src="/shopping-cart.png" className="h-5" alt="" />
+              <span
+                className={`${
+                  cart.count ? "bg-orange-500 w-5 h-5 rounded-full" : ""
+                } absolute flex bottom-4 left-3 font-bold p-3 justify-center items-center font-bold text-sm text-white`}
+              >
+                <p>{cart.count}</p>
+              </span>
+            </div>
+          </section>
+        </section>
+      </section>
+    </form>
+  );
+};
 
 const OrderList: React.FunctionComponent<AppProps> = () => {
-  const [query, setQuery] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const { orders, handleOrderSearch } = useContext(GlobalAppContext);
-  const [orderResult, setOrderResult] = useState<null | order[]>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-    setOrderResult(null);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const result = handleOrderSearch!(query);
-    setOrderResult(result);
-    setQuery("");
-    setIsFocused(false);
-  };
+  const { orders, meals } = useContext(GlobalAppContext);
+  const [showOrderForm, setShowOrderForm] = useState(false);
 
   let content: JSX.Element;
 
-  if (orderResult && orderResult!.length > 0) {
-    content = <DataTable orderData={orderResult} />;
+  if (showOrderForm) {
+    content = <OrderPanel mealsData={meals} />;
   } else {
-    content = (
-      <Tabs className="p-5">
-        <TabList>
-          <Tab>Received Orders</Tab>
-          <Tab>Prepared Orders</Tab>
-          <Tab>Allocated Orders</Tab>
-          <Tab>Orders on the way</Tab>
-          <Tab>Delivered Orders</Tab>
-          <Tab>Pending Orders</Tab>
-        </TabList>
-
-        <TabPanel>
-          <DataTable orderData={orders} />
-        </TabPanel>
-        <TabPanel>
-          <DataTable
-            orderData={orders?.filter((order) => order.status === "prepared")}
-          />
-        </TabPanel>
-        <TabPanel>
-          <DataTable
-            orderData={orders?.filter((order) => order.status === "allocated")}
-          />
-        </TabPanel>
-        <TabPanel>
-          <DataTable
-            orderData={orders?.filter((order) => order.status === "on its way")}
-          />
-        </TabPanel>
-        <TabPanel>
-          <DataTable
-            orderData={orders?.filter((order) => order.status === "delivered")}
-          />
-        </TabPanel>
-        <TabPanel>
-          <DataTable
-            orderData={orders?.filter((order) => order.pending === true)}
-          />
-        </TabPanel>
-      </Tabs>
-    );
+    content = <DataTable orderData={orders} />;
   }
+
   return (
-    <section className="h-full shadow rounded-lg bg-white">
-      <header className="border-b border-gray-200 p-5">
+    <section className="min-h-fit h-full shadow rounded-lg bg-white flex flex-col">
+      <header className="border-b border-gray-200 p-5 min-w-fit">
         <label
           className="text-current text-1xl font-medium"
           htmlFor="customerList"
@@ -80,32 +179,40 @@ const OrderList: React.FunctionComponent<AppProps> = () => {
           Orders
         </label>
       </header>
-      <section>
+      <section className="min-w-fit">
         <section className="w-full p-5">
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <span
-              className={`border border-gray-400 rounded-lg grid grid-cols-6  w-96 hover:border-blue-500 ${
-                isFocused && "border-blue-500 outline-blue-500"
-              }`}
+          <section className="flex gap-5">
+            <FormControl variant="standard">
+              <InputLabel htmlFor="input-with-icon-adornment">
+                Order Id
+              </InputLabel>
+              <Input id="input-with-icon-adornment" />
+            </FormControl>
+            <FormControl variant="standard">
+              <InputLabel htmlFor="input-with-icon-adornment">
+                Phone Number
+              </InputLabel>
+              <Input id="input-with-icon-adornment" />
+            </FormControl>
+            <FormControl variant="standard">
+              <InputLabel htmlFor="input-with-icon-adornment" shrink>
+                Date
+              </InputLabel>
+              <Input type="date" />
+            </FormControl>
+            <button className="rounded-lg bg-blue-500 px-5 text-white text-sm">
+              search
+            </button>
+            <button className="rounded-lg bg-purple-600 px-5 text-white text-sm">
+              reset all
+            </button>
+            <button
+              className="rounded-lg bg-blue-500 px-5 text-white text-sm"
+              onClick={(e) => setShowOrderForm(!showOrderForm)}
             >
-              <div className="grid grid-cols-6 col-span-4 items-center px-4 py-2">
-                <img src="/search.png" alt="" className="h-3 col-span-1" />
-                <input
-                  className="border-0 outline-0 col-span-5"
-                  placeholder="Order ID"
-                  type="text"
-                  onChange={(e) => handleChange(e)}
-                  onFocus={(e) => setIsFocused(true)}
-                />
-              </div>
-              <button
-                className="bg-secondary text-sm text-white font-medium col-span-2 rounded-r-lg hover:bg-blue-600"
-                type="submit"
-              >
-                Search
-              </button>
-            </span>
-          </form>
+              make order
+            </button>
+          </section>
         </section>
         <section className="w-full">{content}</section>
       </section>
