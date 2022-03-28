@@ -30,7 +30,7 @@ const SideNav: React.FunctionComponent<AppProps> = ({
         <div className="flex flex-col ml-6 mr-4">
           <label className="my-2 text-current font-medium">Dashboard</label>
           <NavLink
-            to="/dashboard"
+            to="/"
             className={({ isActive }) =>
               isActive ? activeLinkProps : defaultLinkProps
             }
