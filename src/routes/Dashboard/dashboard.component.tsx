@@ -29,17 +29,21 @@ const Dashboard: React.FunctionComponent<AppProps> = (props) => {
       </header>
       <section className="row-span-47  sm:row-span-42 flex flex-col gap-5 col-span-6">
         <div className="grid sm:grid-cols-4 gap-5 mb-3">
-          <div className="bg-primary text-white text-1xl fs rounded-lg h-32 p-5">
-            Total Orders
+          <div className="bg-primary text-white text-1xl fs rounded-lg h-32 p-5 flex flex-col gap-8">
+            <h2 className="">Total Orders By Day</h2>
+            <span className="text-2xl">0.00</span>
           </div>
-          <div className="bg-secondary text-white rounded-lg h-32 p-5 shadow">
-            Another report
+          <div className="bg-secondary text-white rounded-lg h-32 p-5 shadow flex flex-col gap-8">
+            <h2 className="">Avarage Orders Value By Day</h2>
+            <span className="text-2xl">0.00</span>
           </div>
-          <div className="bg-warning text-white rounded-lg h-32 p-5 shadow">
-            Another report
+          <div className="bg-warning text-white rounded-lg h-32 p-5 shadow flex flex-col gap-8">
+            <h2 className="">Revenue By Day</h2>
+            <span className="text-2xl">0.00</span>
           </div>
-          <div className="bg-dark text-white rounded-lg h-32 p-5 shadow">
-            Another report
+          <div className="bg-dark text-white rounded-lg h-32 p-5 shadow flex flex-col gap-8">
+            <h2 className="">Transactions By Day</h2>
+            <span className="text-2xl">0.00</span>
           </div>
         </div>
         <div className="bg-white p-5 rounded-lg flex flex-col gap-4">

@@ -16,8 +16,10 @@ const Layout: React.FunctionComponent<AppProps> = () => {
       <header className="app-header row-span-5 sm:row-span-4 grid grid-cols-48">
         <div className="h-full flex items-center justify-between col-span-48 md:col-span-7 lg:col-span-7">
           <img
-            src="/kune_landscape_logo.svg"
-            className="hidden sm:block sm:h-3/5 sm:w-3/5"
+            // src="/kune_landscape_logo.svg"
+            src="/logo-2.png"
+            className="hidden sm:block mx-6 sm:h-3/5 sm-w-3/5"
+            // className="hidden sm:block sm:h-3/5 sm:w-3/5"
             alt=""
           />
           <img

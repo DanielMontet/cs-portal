@@ -39,14 +39,14 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   <Link to="/customers/1" className="text-blue-500">
-                    Customer Name
+                    victor Cheboi
                   </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  15
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -58,14 +58,14 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   <Link to="/customers/1" className="text-blue-500">
-                    Customer Name
+                    johnson Paints
                   </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  13
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -77,14 +77,14 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   <Link to="/customers/1" className="text-blue-500">
-                    Customer Name
+                    Victor Bashir
                   </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  1
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -96,14 +96,14 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   <Link to="/customers/1" className="text-blue-500">
-                    Customer Name
+                    loius Moreno
                   </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  55
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -115,14 +115,14 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   <Link to="/customers/1" className="text-blue-500">
-                    Customer Name
+                    Brian Alfred
                   </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  70
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -133,13 +133,15 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Aaron Kipkorir
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  1
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -150,13 +152,15 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Mary Nyagaka
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  39
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -167,13 +171,15 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Damaris Cheptoo
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  70
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -184,13 +190,15 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Madeline Waweru
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  100
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location
@@ -201,47 +209,15 @@ const CustomerList: React.FunctionComponent<AppProps> = (props) => {
               </tr>
               <tr>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
+                  <Link to="/customers/1" className="text-blue-500">
+                    Johnson Jr
+                  </Link>
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Phone
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Location
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Action
-                </td>
-              </tr>
-              <tr>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Customer Name
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Phone
-                </td>
-                <td className="p-6 text-left text-sm border-b border-gray-200">
-                  Orders
+                  45
                 </td>
                 <td className="p-6 text-left text-sm border-b border-gray-200">
                   Location

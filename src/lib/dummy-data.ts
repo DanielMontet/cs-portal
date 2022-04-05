@@ -10,7 +10,7 @@ const meals = [{
 	mealId: "nhte"
 },
 {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
+	title: "Honey Glazed Wings with Roast Potatoes and Mixed Vegetables + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
 	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
@@ -19,7 +19,7 @@ const meals = [{
 
 },
 {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
+	title: "Lamb Navarin, Mashed Potatoes and Spinach + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
 	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
@@ -27,7 +27,7 @@ const meals = [{
 	mealId: "kluy"
 },
 {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
+	title: "Muthokoi, Steamed Cabbage and Carrots + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
 	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
@@ -35,7 +35,7 @@ const meals = [{
 	mealId: "asdc"
 },
 {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
+	title: "Chicken Curry with Steamed Rice and Spinach + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
 	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
@@ -43,44 +43,12 @@ const meals = [{
 	mealId: "kaba"
 },
 {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
+	title: "Coconut Ndegu, Steamed Rice, Stir-Fried Vegetables + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
 	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
 	price: 150,
 	mealId: "jhnr"
-}, {
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
-	sold: 500,
-	remaining: 1700,
-	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
-	price: 250,
-	mealId: "ascs"
-}
-	,
-{
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
-	sold: 500,
-	remaining: 1700,
-	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
-	price: 850,
-	mealId: "kams"
-},
-{
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
-	sold: 500,
-	remaining: 1700,
-	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
-	price: 550,
-	mealId: "awer"
-},
-{
-	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
-	sold: 500,
-	remaining: 1700,
-	img: "https://d1xijv8wa1qxuu.cloudfront.net/Images/Products/2008/10800020/76daf6f0-e951-4ded-999a-4acf55c698a1.jpeg",
-	price: 350,
-	mealID: "ikuy"
 }
 ]
 
