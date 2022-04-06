@@ -1,11 +1,10 @@
 import express from "express";
 import path from "path";
 import cors from "cors"
-// const express = require("express");
-// const path = require("path");
-const app = express();
 import db from "./app-data-source"
 import { Admin } from "./admin/entity/admin.entity";
+import jwt from "jsonwebtoken"
+import { User } from "./user/entity/user.entity";
 
 
 // establish database connection
@@ -18,6 +17,7 @@ db
 		const app = express();
 		const port = process.env.PORT! || 3000;
 		const adminRepository = db.getRepository(Admin)
+		const userRepository = db.getRepository(User)
 
 		app.use(cors({
 			origin: ['http://localhost:3000']
@@ -30,65 +30,64 @@ db
 			res.sendFile(path.join(__dirname, "build", "index.html"));
 		});
 
-		app.post("/api/login", (req, res) => {
+		app.post("/api/login", async (req, res) => {
+			// find user
+			let user = await userRepository.findOne({
+				where: {
+					email: req.body.email
+				}
+			})
+			if (user) {
+				jwt.sign({ user }, "secretKey", (err, token) => {
+					res.json({ token })
+				})
+			}
 
+			return null
 		});
+
+		app.get("/api/users", verifyToken, (req: any, res) => {
+			jwt.verify(req.token!, "secretKey", async (err, authData) => {
+				if (err) {
+					res.sendStatus(403);
+				} else {
+					const result = await userRepository.find()
+					res.send(result);
+				}
+			})
+		})
+
+		app.post("/api/create_user", async (req, res) => {
+			const user = await userRepository.create(req.body);
+			let result = await userRepository.save(user);
+			return res.send(result).status(200)
+		})
 
 		app.post("/api/create-super-user", (req, res) => {
 			// create super user
+			// 
 
 		})
 
+		//Verify Token
+		function verifyToken(req, res, next) {
+			// get auth header value
+			const bearerHeader = req.headers['authorization'];
+			//chack if bearer is undefined
+			if (typeof bearerHeader !== 'undefined') {
+				const bearer = bearerHeader.split(' ');
+				//get token from array
+				const bearerToken = bearer[1];
+				req.token = bearerToken
+				//next middleware
+				next()
+			} else {
+				//Forbidden
+				return res.send("Forbidden").status(403)
+			}
+		}
 
-		// app.get("/api/products", async (_req, _res) => {
-		// 	const products = await productRepository.find();
-		// 	return _res.json(products)
-		// })
 
-		// app.post("/api/products", async (_req, _res) => {
-		// 	const product = await productRepository.create(_req.body);
-		// 	const result = await productRepository.save(product)
-		// 	channel.sendToQueue("product_created", Buffer.from(JSON.stringify(result)))
-		// 	return _res.send(result)
-		// })
-
-		// app.get("/api/products/:id", async (_req, _res) => {
-		// 	const product = await productRepository.findOne({
-		// 		where: {
-		// 			id: Number(_req.params.id)
-		// 		}
-		// 	});
-		// 	return _res.send(product)
-		// })
-
-		// app.put("/api/products/:id", async (_req, _res) => {
-		// 	const product = await productRepository.findOne({
-		// 		where: {
-		// 			id: Number(_req.params.id)
-		// 		}
-		// 	})
-		// 	productRepository.merge(product!, _req.body);
-		// 	const result = await productRepository.save(product!);
-		// 	channel.sendToQueue("product_updated", Buffer.from(JSON.stringify(result)))
-		// 	return _res.send(result);
-		// })
-
-		// app.delete("/api/products/:id", async (_req, _res) => {
-		// 	const result = await productRepository.delete(_req.params.id)
-		// 	channel.sendToQueue("product_deleted", Buffer.from(JSON.stringify(_req.params.id)))
-		// 	return _res.send(result);
-		// })
-
-		// app.post("/api/products/:id/like", async (_req, _res) => {
-		// 	const product = await productRepository.findOne({
-		// 		where: {
-		// 			id: Number(_req.params.id)
-		// 		}
-		// 	})
-		// 	product!.likes++;
-		// 	const result = await productRepository.save(product!);
-		// 	return _res.send(result);
-		// })
 
 
 		app.listen(port, () => {

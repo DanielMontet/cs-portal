@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm"
 import { Admin } from "./admin/entity/admin.entity";
+import { User } from "./user/entity/user.entity";
 
 
 const myDataSource = new DataSource({
@@ -9,7 +10,7 @@ const myDataSource = new DataSource({
 	username: "node-micro-admin-user",
 	password: "node-micro-admin-user",
 	database: "cs-portal",
-	entities: [Admin],
+	entities: [Admin, User],
 	// logging: true,
 	synchronize: true,
 })
