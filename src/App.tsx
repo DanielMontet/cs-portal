@@ -8,8 +8,9 @@ import Login from "./routes/Login/login.component";
 import ResetPassword from "./routes/ResetPassword/reset-password.component";
 import OrderDetail from "./routes/Orders/order-detail";
 import CustomerDetail from "./routes/Customers/customer-detail.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
+  cartItem,
   comment,
   GlobalAppContext,
   meal,
@@ -31,14 +32,30 @@ function App() {
   const [users, setUsers] = useState<user[]>(getUsers);
   const [customers, setCustomers] = useState<any>(null);
   const [comments, setComments] = useState<comment[] | undefined>([]);
+  const [cart, setCart] = useState<cartItem[]>([]);
+  const [customerDetails, setCustomerDetails] = useState<{}>(null);
 
-  const handleOrderSearch = (orderId: string) => {
-    //do something with id
-    const order = orders.filter((order) => {
-      if (order.orderId === orderId) return order;
+  const handleAddToCart = ({ mealId, title, price }: meal) => {
+    // update cart item if its already in cart
+    let item = cart!.filter((i) => {
+      return i.mealId === mealId;
     });
-    return order;
+
+    let newCart = cart!.filter((i) => {
+      return i.mealId !== mealId;
+    });
+
+    if (item[0]) {
+      item[0].quantity++;
+      return setCart([...newCart, item[0]]);
+    }
+
+    // create a cart item from a meal if its not in cart
+    let cartItem: cartItem = { mealId, title, price, quantity: 1 };
+    return setCart([...newCart, cartItem]);
   };
+
+  const handleSubtractFromCart = (meal: meal) => {};
 
   const context = {
     orders,
@@ -51,14 +68,15 @@ function App() {
     setIsLoggedIn,
     currentUser,
     setCurrentUser,
-    handleOrderSearch,
     meals,
     comments,
     setComments,
-  };
-
-  const handleOrderFilter = (state: string) => {
-    //do something with state
+    handleAddToCart,
+    handleSubtractFromCart,
+    cart,
+    setCart,
+    setCustomerDetails,
+    customerDetails,
   };
 
   return (

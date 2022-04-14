@@ -48,6 +48,9 @@ export default function OrderTable<AppProps>({ orderData }: any) {
             <TableCell align="right">
               <p className="text-current font-bold">Status</p>
             </TableCell>
+            <TableCell align="right">
+              <p className="text-current font-bold">Phone Number</p>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -73,6 +76,9 @@ export default function OrderTable<AppProps>({ orderData }: any) {
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
                 {row.status}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {row.phone}
               </TableCell>
             </TableRow>
           ))}

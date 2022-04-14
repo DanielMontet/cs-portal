@@ -1,7 +1,8 @@
 import React from "react"
 import { meal, order, user } from "../types/props.types";
 
-const meals = [{
+const meals = [
+	{
 	title: "Beans Stew with Chapati, Steamed Cabbage and Carrots + Small Fruit Salad",
 	sold: 500,
 	remaining: 1700,
@@ -284,25 +285,25 @@ const users = [
 		}
 	}
 ]
-function createOrderData(orderId: string, amount: number, status: string, pending: boolean) {
-	return { orderId, amount, status, pending };
+function createOrderData(orderId: string, amount: number, status: string, pending: boolean, phone: string) {
+	return { orderId, amount, status, pending, phone };
 }
 
 
 const orders = [
-	createOrderData("asdasdas", 305, "received", true),
-	createOrderData("asdsasda", 452, "prepared", true),
-	createOrderData("dsfdsfas", 262, "allocated", true),
-	createOrderData("Fasdasss", 159, "prepared", true),
-	createOrderData("sadsadss", 356, "delivered", false),
-	createOrderData("sadasdsa", 408, "prepared", true),
-	createOrderData("asdsadaa", 237, "allocated", true),
-	createOrderData("sadsasao", 375, "received", true),
-	createOrderData("Kiddsfds", 518, "on its way", true),
-	createOrderData("Lsdfsdf", 392, "received", true),
-	createOrderData("asdsadasd", 318, "on its way", true),
-	createOrderData("asdasdsad", 360, "delivered", false),
-	createOrderData("sdfdsffd", 437, "on its way", true),
+	createOrderData("asdasdas", 305, "received", true, "0727656345"),
+	createOrderData("asdsasda", 452, "prepared", true, "0725451723"),
+	createOrderData("dsfdsfas", 262, "allocated", true, "0752123334"),
+	createOrderData("Fasdasss", 159, "prepared", true, "0712345678"),
+	createOrderData("sadsadss", 356, "delivered", false, "070000312"),
+	createOrderData("sadasdsa", 408, "prepared", true, "0735168237"),
+	createOrderData("asdsadaa", 237, "allocated", true , "0769234123"),
+	createOrderData("sadsasao", 375, "received", true, "0734197970"),
+	createOrderData("Kiddsfds", 518, "on its way", true, "0793403400"),
+	createOrderData("Lsdfsdf", 392, "received", true, "0700034123"),
+	createOrderData("asdsadasd", 318, "on its way", true, "0729044523"),
+	createOrderData("asdasdsad", 360, "delivered", false, "0756342423"),
+	createOrderData("sdfdsffd", 437, "on its way", true, "0789023442"),
 ];
 
 export const getOrders = (): order[] => {

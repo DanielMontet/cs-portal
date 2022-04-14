@@ -11,11 +11,9 @@ import { User } from "./user/entity/user.entity";
 db
 	.initialize()
 	.then(() => {
-		// connect to message queue
-
 		// initialize express server
 		const app = express();
-		const port = process.env.PORT! || 3000;
+		const port = process.env.PORT! || 4000;
 		const adminRepository = db.getRepository(Admin)
 		const userRepository = db.getRepository(User)
 
@@ -24,10 +22,10 @@ db
 		}))
 
 		app.use(express.json());
-		app.use(express.static(path.join(__dirname, "build")));
+		app.use(express.static(path.join("build")));
 
 		app.get("/", function (req, res) {
-			res.sendFile(path.join(__dirname, "build", "index.html"));
+			res.sendFile(path.join("build", "index.html"));
 		});
 
 		app.post("/api/login", async (req, res) => {
@@ -67,6 +65,10 @@ db
 			// create super user
 			// 
 
+		})
+
+		app.get("/hello", (_, res) => {
+			res.send("hello")
 		})
 
 		//Verify Token

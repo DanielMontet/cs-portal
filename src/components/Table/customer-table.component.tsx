@@ -9,28 +9,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import TableHead from "@mui/material/TableHead";
 import { TablePaginationActions } from "./table-utils";
+import { Link } from "react-router-dom";
 
-function createData(orderId: string, amount: number, status: string) {
-  return { orderId, amount, status };
-}
 
-const rows = [
-  createData("asdasdas", 305, "received"),
-  createData("asdsasda", 452, "prepared"),
-  createData("dsfdsfas", 262, "allocated"),
-  createData("Fasdasss", 159, "prepared"),
-  createData("sadsadss", 356, "delivered"),
-  createData("sadasdsa", 408, "prepared"),
-  createData("asdsadaa", 237, "allocated"),
-  createData("sadsasao", 375, "received"),
-  createData("Kiddsfds", 518, "on its way"),
-  createData("Lsdfsdf", 392, "received"),
-  createData("asdsadasd", 318, "on its way"),
-  createData("asdasdsad", 360, "delivered"),
-  createData("sdfdsffd", 437, "on its way"),
-];
 
-export default function CustomerTable() {
+export default function CustomerListTable<AppProps>({userData}) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -58,35 +41,55 @@ export default function CustomerTable() {
         <TableHead>
           <TableRow>
             <TableCell>
-              <p className="text-current font-bold">Order ID</p>
+              <p className="text-current font-bold">User ID</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Amount</p>
+              <p className="text-current font-bold">Email</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Status</p>
+              <p className="text-current font-bold">Username</p>
             </TableCell>
             <TableCell align="right">
-              <p className="text-current font-bold">Action</p>
+              <p className="text-current font-bold">Phone Number</p>
+            </TableCell>
+            <TableCell align="right">
+              <p className="text-current font-bold">Last Known Address</p>
+            </TableCell>
+            <TableCell align="right">
+              <p className="text-current font-bold">Company</p>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
+            ? userData!.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : userData!
           ).map((row) => (
             <TableRow key={row.orderId}>
               <TableCell component="th" scope="row">
-                {row.orderId}
+                <Link
+                  className="text-blue-700 hover:text-blue-500"
+                  to={`/customers/${row.id}`}
+                  key={row.id}
+                >
+                  {row.id}
+                </Link>
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.amount}
+                {row.email}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
-                {row.status}
+                {row.username}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right"></TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {row.phone}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {`${row.address.street},${row.address.city}`}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {row.company.name}
+              </TableCell>
             </TableRow>
           ))}
           {emptyRows > 0 && (
@@ -100,7 +103,7 @@ export default function CustomerTable() {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: "All", value: -1 }]}
               colSpan={3}
-              count={rows.length}
+              count={userData.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
